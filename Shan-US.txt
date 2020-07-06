@@ -1,0 +1,10 @@
+As a college student, I want to track how much I spend on food, rent, tuition,
+and books and see monthly trends in my spendings, so that I can graduate
+debt-free.
+
+As a user, I want a categories page, so I can see the breakdown of my current
+monthly budget and spendings by category.
+
+As a single mother, I want to be notified of upcoming bills and notified
+whenever I spend above a specified threshold, so that I can financially support
+myself and my child.

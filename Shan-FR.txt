@@ -1,0 +1,13 @@
+The system shall provide users with a monthly overview of:
+	- their total spendings in each category;
+	- and the total amount spent in all categories
+the day after the month ends.
+
+The system shall notify users* when they spend above the spending threshold
+they specified.
+
+The system shall notify users* when they have an upcoming bill
+	- the number of days in advance the user-specified;
+	- or 3 days in advance if the user did not specify a date.
+
+*via email or pop-up.
