@@ -1,0 +1,18 @@
+1) The system shall provide a button to log a new purchase which will then prompt the user for
+    - the date of the purchase,
+    - the business that the purchase was made at,
+    - the price of the purchase,
+    - the category which the log will be attributed to.
+
+2) The system shall provide buttons for the user to add and take away categories from the user’s custom list of categories.
+
+3) The system shall provide the following pages:
+    - Summary
+    - Purchase Entry
+    - Deals/Discounts
+    - Money
+    - Add a Bank Account
+    - Account Settings
+    - Categories
+    - Sign Out
+

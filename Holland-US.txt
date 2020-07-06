@@ -1,0 +1,6 @@
+1) As a user, I want to link my Capital account to my banking account, so that my credit card purchases are automatically categorized by merchants.
+
+2) As a user, I want to be able to create custom categories and organize my purchases accordingly, so I can track the distribution of my spendings.
+
+3) As a user, I want to create spending goals for each category, so I can keep track of where I’m overspending my money.
+
