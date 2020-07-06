@@ -1,0 +1,5 @@
+As a user, I want to create spending goals for each category, so I can keep track of where I’m overspending my money.
+
+As a user, I want to have a summary page, so that I can see all my previous monthly budgets in one place.
+
+As a user, I want to have a profile settings page, so that I can see and change my profile information, such as my email or password.
