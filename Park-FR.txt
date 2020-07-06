@@ -1,0 +1,5 @@
+The system shall provide user-specified categories for transactions.
+
+The system shall provide user-specified dollar amount limits on user-specified categories.
+
+The system shall provide a pie-graph breakdown of the dollar amount spent in each category.
