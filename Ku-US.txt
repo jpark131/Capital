@@ -1,0 +1,18 @@
+John Ku
+Cal Poly
+
+CSC 307 | Intro to Software Engineer | Summer 2020
+
+Assignment
+
+Please provide three user stories about your project. Please do not collaborate.
+Only one pdf file is allowed.
+  
+User Story 1
+As a user, I want to input transaction date, total amount paid, category for the type of purchase and business name where the purchase was made, so that I can track my expenses.
+
+User Story 2
+As a user, I want to see the remaining funds available before I reach my predetermined budget, so that I do not overspend.  
+
+User Story 3
+As a user, I want to see my past monthly expenses on a graph, so that I can see my spending trends.

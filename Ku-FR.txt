@@ -1,0 +1,18 @@
+John Ku
+
+Cal Poly
+
+CSC 307 | Intro to Software Engineer | Summer 2020
+
+Assignment 2
+Please provide three functional Requirements about your project. Please do not collaborate.
+Only one pdf file is allowed.
+  
+Functional Requirement 1
+The system shall aggregate transactional data entered by the user to generate a weekly and monthly expenditure balance that will be displayed to the user.
+
+Functional Requirement 2
+The system shall use the predetermined budget amount entered by the user and subtract the aggregated monthly expenditure to display the remaining funds available to the user.   
+
+Functional Requirement 3
+The system shall use aggregated historical transactional data to generate a line graph showing past historical expenses per month.  
