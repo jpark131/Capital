@@ -4,7 +4,7 @@
 }
 
 *{
-    font-family: myfont;
+    font-family: myfont, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -16,12 +16,18 @@ body{
     background: #f5f5f5;
 }
 
+
 .nav-bar{
     display: flex;
     justify-content: space-between;
     padding: 30px 10%;
     cursor: pointer;
     background: white;
+}
+
+.logo img{
+    height: 40px;
+    margin: -15px;
 }
 
 .menu li{
@@ -39,11 +45,7 @@ body{
     margin-right: 30em;
     transition: all 0.3s ease 0s;
 }
-.menu .transaction a:hover{
-    color: white;
-}
 .menu .transaction:hover{
-    color: white;
     font-weight: bold;
     background: rgb(12, 245, 117);
 }
