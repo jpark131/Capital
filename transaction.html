@@ -6,6 +6,7 @@
 	    <title>Coming Soon</title>
 	    <link rel="stylesheet" href="css/nav-bar.css">
 	    <link rel="stylesheet" href="css/temp.css">
+	    <link rel="stylesheet" href="css/transaction.css">
 	</head>
 	<body>
 	    <nav class="nav-bar">
@@ -16,22 +17,19 @@
 	            <li class="logout"><a href="login.html">Logout</a></li>
 	        </ul>
 	    </nav>
-	    <div class="temp">
-	        <form method="post">
-				<label> Date:
-					<input name="transactionDate">
-				</label>
-				<label> Category:
-					<input name="category">
-				</label>
-				<label> Business Name:
-					<input name="businessName">
-				</label>
-				<label> Transaction Amount:
-					<input name="transactionAmount">
-				</label>
-				<button>Save</button>
+	    <div class="transaction">
+	        <form method="post" id="newTransaction">
+				<label for="date"> Date: </label>
+					<input type="date" id="date" name="date">
+				<label for="category">Category:</label>
+					<input type="text" id="category" name="category" maxlength="20">
+				<label for="businessName"> Business Name:</label>
+					<input type="text" id="businessName" name="businessName" maxlength="15">
+				<label for="transactionAmount"> Transaction Amount:</label>
+					<input type="number" id="transactionAmount" name="transactionAmount" size="10" maxlength="20">
+				<button type="submit" value="Submit">Submit </button>
 			</form>
+			
 	    </div>
 	</body>
 </html>
