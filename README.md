@@ -8,8 +8,8 @@ On **New Transaciton** Page: <br>
 
 
 
-Link to **Travis CI**:
-
+Link to **Travis CI**:<br>
+> 
 
 
 Link to **SonarCloud**:<br>
