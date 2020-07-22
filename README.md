@@ -8,13 +8,16 @@ On **New Transaciton** Page: <br>
 
 
 
-
-Link to SonarCloud:
-
+Link to **Travis CI**:
 
 
 
-Link to Travis CI:
+Link to **SonarCloud**:
+
+
+
+
+
 
 
 
