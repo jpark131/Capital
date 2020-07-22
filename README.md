@@ -13,6 +13,7 @@ Link to **Travis CI**:
 
 
 Link to **SonarCloud**:
+https://sonarcloud.io/dashboard?id=kailishan_Capital
 
 
 
