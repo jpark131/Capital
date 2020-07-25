@@ -6,7 +6,8 @@ On **New Transaciton** Page: <br>
    * **Business Name** can be alpha-numeric<br>
    * **Amount** is a float value<br><br>
 
-
+Link to **Github Pages**:<br>
+>https://kailishan.github.io/Capital/
 
 Link to **Travis CI**:<br>
 > 
