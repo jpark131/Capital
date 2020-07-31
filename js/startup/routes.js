@@ -1,7 +1,9 @@
 const express = require("express");
-const static = require("../routes/static");
+const register = require("../routes/register");
+const login = require("../routes/login");
 
-module.exports = function (app) {
+module.exports = function(app) {
   app.use(express.json());
-  app.use("/", static);
+  app.use('/register', register);
+  app.use('/login', login);
 };
