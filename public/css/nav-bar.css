@@ -41,11 +41,14 @@ body{
     font-weight: bold;
 }
 
-.menu .transaction{
-    margin-right: 30em;
+.nav-bar .transaction{
+    padding: 5px 10px;
+    margin: 0 20px;
+    border-radius: 50px;
+    border: none;
     transition: all 0.3s ease 0s;
 }
-.menu .transaction:hover{
+.nav-bar .transaction:hover{
     font-weight: bold;
     background: #8684E7;
 }
