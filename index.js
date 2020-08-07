@@ -1,8 +1,10 @@
 const express = require("express");
 const winston = require("winston");
+const users = require('./js/routes/users');
 const app = express();
 
 app.use(express.static("./"));
+app.use('js/routes/users', users)
 
 require('./js/startup/routes')(app);
 require('./js/startup/db')();
