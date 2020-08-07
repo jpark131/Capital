@@ -7,7 +7,7 @@ On **New Transaciton** Page: <br>
    * **Amount** is a float value<br><br>
 
 Link to **Github Pages**:<br>
->https://kailishan.github.io/Capital/
+>https://jpark131.github.io/Capital/
 
 Link to **Travis CI**:<br>
 > 
