@@ -6,6 +6,7 @@
     <title>Coming Soon</title>
     <link rel="stylesheet" href="./public/css/nav-bar.css">
     <link rel="stylesheet" href="./public/css/temp.css">
+    <link rel="stylesheet" href="./public/css/profile.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -16,8 +17,61 @@
             <li class="logout"><a href="login.html">Logout</a></li>
         </ul>
     </nav>
-    <div class="temp">
-        <h1>This is where you would see profile stuff!</h1>
+    <header>
+        <center><h1> Profile </h1></center>
+    </header>
+    <div class = "container">
+        <table>
+        <tr>
+          <td>Name</td>
+          <td></td>
+          <td><input type="text" id="fname" name="fname" placeholder="Jane Doe"></td>
+        </tr>
+        <tr>
+          <td>Username </td>
+          <td>   </td>
+          <td><input type="text" id="username" name="username" placeholder="jane123"></td>
+        </tr>
+        <tr>
+          <td>Password </td>
+          <td>   </td>
+          <td> <input type="password" id="pw" name="pw"></td>
+        </tr>
+        <tr>
+          <td>Email </td>
+          <td>   </td>
+          <td> <input type="text" id="email" name="email"></td>
+        </tr>
+        <tr>
+          <td>Phone Number </td>
+          <td>   </td>
+          <td> <input type="text" id="phone" name="phone"></td>
+        </tr>
+        <tr>
+          <td>Notification Settings </td>
+          <td>   </td>
+          <td>           <select name="notif" id="notif" placeholder="See More">
+                    <option value="See">See More</option>
+                    <option value="Text">Text</option>
+                    <option value="Email">Email</option>
+                    <option value="Both">Text + Email</option>
+                  </select></td>
+        </tr>
+        <tr>
+          <td>Monthly Budget</td>
+          <td>   </td>
+          <td>  <input type="text" id="budget" name="budget"></td>
+        </tr>
+        <tr>
+          <td>Monthly Expenses</td>
+          <td>   </td>
+          <td>           <select name="exp" id="exp" placeholder="See More">
+                    <option value="See">See More</option>
+                    <option value="alot">A lot</option>
+                    <option value="none">None</option>
+                  </select></td>
+        </tr>
+      </table>
     </div>
 </body>
 </html>
