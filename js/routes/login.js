@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const users = await User.find().sort("name");
+  const users = await User.find().populate("transactions").sort("name");
   res.send(users);
 });
 

@@ -1,9 +1,11 @@
 const express = require("express");
-const register = require("../routes/register");
+const users = require("../routes/users");
 const login = require("../routes/login");
+const transaction = require("../routes/transactions");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(express.json());
-  app.use('/register', register);
-  app.use('/login', login);
+  app.use("/users", users);
+  app.use("/login", login);
+  app.use("/transaction", transaction);
 };
