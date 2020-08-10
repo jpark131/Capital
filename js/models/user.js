@@ -30,20 +30,35 @@ const userSchema = new mongoose.Schema({
   transactions: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Transaction" }],
     default: [],
+    required: true,
+  },
+  budget: {
+    type: Number,
+    required: true,
   },
   months: [
     {
       type: new mongoose.Schema({
-        month: String,
+        name: String,
         year: Number,
+        budget: this.budget,
+        actual: Number,
       }),
+      required: true,
       default: [],
     },
   ],
 });
 
 userSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ _id: this._id }, config.get("jwtPrivateKey"));
+  const token = jwt.sign(
+    {
+      _id: this._id,
+      name: this.name,
+      email: this.email,
+    },
+    config.get("jwtPrivateKey")
+  );
 
   return token;
 };
@@ -55,18 +70,11 @@ function validateUser(user) {
     name: Joi.string().min(5).max(50).required(),
     email: Joi.string().min(5).max(255).required().email(),
     password: Joi.string().min(5).max(255).required(),
-    transactions: Joi.required(),
+    transactions: Joi.array(),
   };
 
   return Joi.validate(user, schema);
 }
-
-console.log(
-  jwt.verify(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjMwYTk4OTgwOWY1YTI1ZTAxYzI0MTAiLCJpYXQiOjE1OTcwMjQ2NTB9.HetbeqGRpzkMFY8awmdIaXLprCKL_WhCti7pOpRh7xg",
-    config.get("jwtPrivateKey")
-  )
-);
 
 exports.User = User;
 exports.validate = validateUser;

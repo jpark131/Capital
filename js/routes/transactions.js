@@ -1,13 +1,19 @@
 const { Transaction, validate } = require("../models/transaction");
+const auth = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   const transactions = await Transaction.find().sort("date");
   res.send(transactions);
 });
 
-router.post("/", async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
+  const transaction = await Transaction.findById(req.params.id);
+  res.send(transaction);
+});
+
+router.post("/", auth, async (req, res) => {
   // validates transaction by calling validate method.
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);

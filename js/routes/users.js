@@ -6,7 +6,9 @@ const router = express.Router();
 const _ = require("lodash");
 
 router.get("/me", auth, async (req, res) => {
-  const user = await User.findById(req.user._id).select("-password");
+  const user = await User.findById(req.user._id)
+    .populate("transactions")
+    .select("-password");
   res.send(user);
 });
 
@@ -34,6 +36,7 @@ router.post("/", async (req, res) => {
   const token = user.generateAuthToken();
   res
     .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token")
     .send(_.pick(user, ["_id", "name", "email"]));
 });
 

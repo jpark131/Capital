@@ -7,5 +7,5 @@ module.exports = function (app) {
   app.use(express.json());
   app.use("/users", users);
   app.use("/login", login);
-  app.use("/transaction", transaction);
+  app.use("/transactions", transaction);
 };

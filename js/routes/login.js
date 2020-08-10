@@ -1,10 +1,11 @@
 const Joi = require("joi");
 const bcrypt = require("bcrypt");
+const auth = require("../middleware/auth");
 const { User } = require("../models/user");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   const users = await User.find().populate("transactions").sort("name");
   res.send(users);
 });
