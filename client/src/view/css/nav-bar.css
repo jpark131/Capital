@@ -1,0 +1,19 @@
+.logo img {
+  height: 40px;
+  margin: -15px;
+}
+
+.nav-transaction {
+  margin: 0px 685px;
+  border-radius: 50px;
+  border: none;
+  transition: all 0.3s ease 0s;
+}
+.nav-transaction:hover {
+  font-weight: bold;
+  background: #8684e7;
+}
+
+.login {
+  margin-left: 1700px;
+}

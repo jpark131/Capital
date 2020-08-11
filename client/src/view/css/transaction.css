@@ -1,0 +1,19 @@
+.transaction {
+  margin-top: 20em;
+  align-items: center;
+  text-align: center;
+}
+
+.transaction input {
+  text-align: center;
+  margin-right: 30px;
+  margin-left: 2px;
+}
+
+.transaction input#date {
+  width: 150px;
+}
+
+.transaction input#transactionAmount {
+  width: 80px;
+}
