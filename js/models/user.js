@@ -35,19 +35,8 @@ const userSchema = new mongoose.Schema({
   budget: {
     type: Number,
     required: true,
+    default: 0,
   },
-  months: [
-    {
-      type: new mongoose.Schema({
-        name: String,
-        year: Number,
-        budget: this.budget,
-        actual: Number,
-      }),
-      required: true,
-      default: [],
-    },
-  ],
 });
 
 userSchema.methods.generateAuthToken = function () {
