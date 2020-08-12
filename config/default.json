@@ -1,4 +1,4 @@
 {
   "jwtPrivateKey": "1234",
-  "db": "dmongodb+srv://capitalUser:12345@capital.q4dxd.azure.mongodb.net/capital?retryWrites=true&w=majority"
+  "db": "mongodb://localhost/capital"
 }
