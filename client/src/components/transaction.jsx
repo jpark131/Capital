@@ -26,7 +26,7 @@ class Transaction extends Form {
       transaction,
       this.props.match.params.id
     );
-    addTransactionToUser(transactionInDb._id);
+    await addTransactionToUser(transactionInDb._id);
 
     window.location = "/home";
   };
