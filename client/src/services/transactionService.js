@@ -5,7 +5,6 @@ const endpoint = `/transactions`;
 
 export async function saveTransaction(transaction, Id) {
   transaction.date = new Date(transaction.date);
-  console.log(transaction);
   if (Id !== "new") {
     const transactionForDb = { ...transaction };
     delete transactionForDb._id;

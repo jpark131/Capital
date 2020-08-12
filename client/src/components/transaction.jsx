@@ -6,7 +6,7 @@ import {
   saveTransaction,
   getTransaction,
 } from "../services/transactionService";
-import { updateUser } from "../services/userService";
+import { addTransactionToUser } from "../services/userService";
 
 class Transaction extends Form {
   state = {
@@ -21,11 +21,14 @@ class Transaction extends Form {
     amount: Joi.number().min(0).required(),
   };
 
-  doSubmit = (transaction) => {
-    saveTransaction(transaction, this.props.match.params.id);
-    updateUser();
+  doSubmit = async (transaction) => {
+    const transactionInDb = await saveTransaction(
+      transaction,
+      this.props.match.params.id
+    );
+    addTransactionToUser(transactionInDb._id);
 
-    //this.props.history.push("/home");
+    this.props.history.push("/home");
   };
 
   async populateTransaction() {

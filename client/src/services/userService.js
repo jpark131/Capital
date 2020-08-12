@@ -32,9 +32,11 @@ export async function getCategories() {
   return categories;
 }
 
-export async function updateUser() {
+export async function addTransactionToUser(transactionId) {
   const user = await getUserObject();
-  delete user.categories;
+  delete user._id;
+  delete user.__v;
+  user.transactions.push(transactionId);
   const userForDb = { ...user };
   delete userForDb._id;
   return http.put(`${endpoint}/me`, userForDb);
@@ -44,5 +46,5 @@ export default {
   register,
   getUserObject,
   getCategories,
-  updateUser,
+  addTransactionToUser,
 };

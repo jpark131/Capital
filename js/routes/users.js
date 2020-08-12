@@ -45,9 +45,6 @@ router.put("/me", auth, async (req, res) => {
     return;
   }
 
-  const salt = await bcrypt.genSalt(10);
-  const newPass = await bcrypt.hash(req.body.password, salt);
-
   const user = await User.findByIdAndUpdate(
     req.user._id,
     {
