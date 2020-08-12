@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email"]));
 });
 
-router.put("/:id", auth, async (req, res) => {
+router.put("/me", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) {
     res.status(400).send(error.details[0].message);
@@ -51,7 +51,7 @@ router.put("/:id", auth, async (req, res) => {
   const newPass = await bcrypt.hash(req.body.password, salt);
 
   const user = await User.findByIdAndUpdate(
-    req.params.id,
+    req.user._id,
     {
       name: req.body.name,
       email: req.body.email,
