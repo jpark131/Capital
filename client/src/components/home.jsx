@@ -5,7 +5,6 @@ import { getUserObject, getCategories } from "../services/userService";
 import Pie from "./common/pie";
 import ListGroup from "./common/listGroup";
 import { deleteTransaction } from "../services/transactionService";
-import { Redirect } from "react-router-dom";
 
 class Home extends Component {
   state = {
@@ -30,6 +29,9 @@ class Home extends Component {
   }
 
   async componentDidMount() {
+    if (this.state.transactions.length === 0) {
+      this.props.history.push("/transaction/new");
+    }
     const user = await getUserObject();
     if (!user) return;
     const transactions = user.transactions;
@@ -106,7 +108,7 @@ class Home extends Component {
   render() {
     const { sortColumn, budget, currentMonth, months } = this.state;
     const { sorted: transactions, spent, categories } = this.getPageData();
-    if (transactions === []) return <Redirect to="/transaction/new" />;
+
     return (
       <div className="text-center float-center">
         <h1>This Month's Budget: ${budget}</h1>
