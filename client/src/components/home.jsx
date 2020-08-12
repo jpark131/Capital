@@ -66,6 +66,7 @@ class Home extends Component {
     this.setState({ transactions });
     try {
       await deleteTransaction(transaction._id);
+      window.location = "/home";
     } catch (ex) {
       alert("This transaction has already been deleted");
 
