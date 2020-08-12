@@ -40,4 +40,31 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email"]));
 });
 
+router.put("/:id", auth, async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
+    return;
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  const newPass = await bcrypt.hash(req.body.password, salt);
+
+  const user = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      name: req.body.name,
+      email: req.body.email,
+      password: newPass,
+      transactions: req.body.transactions,
+    },
+    {
+      new: true,
+    }
+  );
+  if (!user) res.status(404).send("The user could not be found");
+
+  res.send(user);
+});
+
 module.exports = router;
