@@ -55,7 +55,7 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 router.delete("/:id", auth, async (req, res) => {
-  const transaction = await Transaction.deleteOne({ _id: req.params.id });
+  const transaction = await Transaction.findByIdAndRemove(req.params.id);
   if (!transaction) res.status(404).send("The transaction could not be found");
 });
 
