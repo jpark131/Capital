@@ -1,5 +1,4 @@
 {
   "jwtPrivateKey": "1234",
-  "db": "mongodb://localhost/vidly",
-  "requiresAuth": true
+  "db": "dmongodb+srv://capitalUser:12345@capital.q4dxd.azure.mongodb.net/capital?retryWrites=true&w=majority"
 }

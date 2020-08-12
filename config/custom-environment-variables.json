@@ -1,4 +1,3 @@
 {
-  "jwtPrivateKey": "capital_jwtPrivateKey",
-  "db": "capital_db"
+  "jwtPrivateKey": "capital_jwtPrivateKey"
 }
