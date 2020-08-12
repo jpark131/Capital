@@ -34,6 +34,7 @@ export async function getCategories() {
 
 export async function updateUser() {
   const user = await getUserObject();
+  delete user.categories;
   const userForDb = { ...user };
   delete userForDb._id;
   return http.put(`${endpoint}/me`, userForDb);

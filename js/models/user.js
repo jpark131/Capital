@@ -23,10 +23,6 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024,
     required: true,
   },
-  categories: {
-    type: [String],
-    default: [],
-  },
   transactions: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Transaction" }],
     default: [],
@@ -60,6 +56,7 @@ function validateUser(user) {
     email: Joi.string().min(5).max(255).required().email(),
     password: Joi.string().min(5).max(255).required(),
     transactions: Joi.array(),
+    budget: Joi.number(),
   };
 
   return Joi.validate(user, schema);
