@@ -50,7 +50,7 @@ router.put("/me", auth, async (req, res) => {
     {
       name: req.body.name,
       email: req.body.email,
-      password: newPass,
+      password: req.body.password,
       transactions: req.body.transactions,
     },
     {
