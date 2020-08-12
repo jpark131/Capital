@@ -57,8 +57,17 @@ class Home extends Component {
     this.setState({ currentMonth: date });
   };
 
-  handleDelete = () => {
-    console.log("Delete");
+  handleDelete = (transaction) => {
+    const originalTransactions = this.state.transactions;
+    const transactions = originalTransactions.filter((t) => t._id !== transaction._id);
+    this.setState({ transactions });
+    try {
+      await deleteMovie(transaction._id);
+    } catch (ex) {
+      toast.error("This transaction has already been deleted");
+
+      this.setState({ transactions: originalTransactions });
+    }
   };
 
   getPageData = () => {

@@ -17,3 +17,7 @@ export async function getTransaction(transactionId) {
   const { data: transaction } = await http.get(`${endpoint}/${transactionId}`);
   return transaction;
 }
+
+export async function deleteTransaction(transactionId) {
+  return await http.delete(`${endpoint}/${transactionId}`);
+}

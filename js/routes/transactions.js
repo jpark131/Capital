@@ -54,4 +54,9 @@ router.put("/:id", auth, async (req, res) => {
   res.send(transaction);
 });
 
+router.delete("/:id", auth, async (req, res) => {
+  const transaction = await Transaction.findByIdAndDelete(req.params.id);
+  if (!transaction) res.status(404).send("The transaction could not be found");
+});
+
 module.exports = router;
