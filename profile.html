@@ -1,77 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coming Soon</title>
-    <link rel="stylesheet" href="./public/css/nav-bar.css">
-    <link rel="stylesheet" href="./public/css/temp.css">
-    <link rel="stylesheet" href="./public/css/profile.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./public/css/nav-bar.css" />
+    <link rel="stylesheet" href="./public/css/temp.css" />
+    <link rel="stylesheet" href="./public/css/profile.css" />
+  </head>
+  <body>
     <nav class="nav-bar">
-        <a class="logo" href="index.html"><img src="./public/images/logo-temp.png" alt="Capital logo"></a>
-        <a class="transaction" href="transaction.html">New Transaction</a>
-        <ul class="menu">
-            <li class="profile"><a href="profile.html">Profile</a></li>
-            <li class="logout"><a href="login.html">Logout</a></li>
-        </ul>
+      <a class="logo" href="index.html"
+        ><img src="./public/images/logo-temp.png" alt="Capital logo"
+      /></a>
+      <a class="transaction" href="transaction.html">New Transaction</a>
+      <ul class="menu">
+        <li class="profile"><a href="profile.html">Profile</a></li>
+        <li class="logout"><a href="login.html">Logout</a></li>
+      </ul>
     </nav>
-    <header>
-        <center><h1> Profile </h1></center>
-    </header>
-    <div class = "container">
-        <table>
+
+    <div class="container">
+      <table>
+        <caption>
+          Profile
+        </caption>
+        <thead>
+          <tr>
+            <th>Profile Settings</th>
+          </tr>
+        </thead>
         <tr>
           <td>Name</td>
           <td></td>
-          <td><input type="text" id="fname" name="fname" placeholder="Jane Doe"></td>
+          <td>
+            <input type="text" id="fname" name="fname" placeholder="Jane Doe" />
+          </td>
         </tr>
         <tr>
-          <td>Username </td>
-          <td>   </td>
-          <td><input type="text" id="username" name="username" placeholder="jane123"></td>
+          <td>Username</td>
+          <td></td>
+          <td>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="jane123"
+            />
+          </td>
         </tr>
         <tr>
-          <td>Password </td>
-          <td>   </td>
-          <td> <input type="password" id="pw" name="pw"></td>
+          <td>Password</td>
+          <td></td>
+          <td><input type="password" id="pw" name="pw" /></td>
         </tr>
         <tr>
-          <td>Email </td>
-          <td>   </td>
-          <td> <input type="text" id="email" name="email"></td>
+          <td>Email</td>
+          <td></td>
+          <td><input type="text" id="email" name="email" /></td>
         </tr>
         <tr>
-          <td>Phone Number </td>
-          <td>   </td>
-          <td> <input type="text" id="phone" name="phone"></td>
+          <td>Phone Number</td>
+          <td></td>
+          <td><input type="text" id="phone" name="phone" /></td>
         </tr>
         <tr>
-          <td>Notification Settings </td>
-          <td>   </td>
-          <td>           <select name="notif" id="notif" placeholder="See More">
-                    <option value="See">See More</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                    <option value="Both">Text + Email</option>
-                  </select></td>
+          <td>Notification Settings</td>
+          <td></td>
+          <td>
+            <select name="notif" id="notif" placeholder="See More">
+              <option value="See">See More</option>
+              <option value="Text">Text</option>
+              <option value="Email">Email</option>
+              <option value="Both">Text + Email</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td>Monthly Budget</td>
-          <td>   </td>
-          <td>  <input type="text" id="budget" name="budget"></td>
+          <td></td>
+          <td><input type="text" id="budget" name="budget" /></td>
         </tr>
         <tr>
           <td>Monthly Expenses</td>
-          <td>   </td>
-          <td>           <select name="exp" id="exp" placeholder="See More">
-                    <option value="See">See More</option>
-                    <option value="alot">A lot</option>
-                    <option value="none">None</option>
-                  </select></td>
+          <td></td>
+          <td>
+            <select name="exp" id="exp" placeholder="See More">
+              <option value="See">See More</option>
+              <option value="alot">A lot</option>
+              <option value="none">None</option>
+            </select>
+          </td>
         </tr>
       </table>
     </div>
-</body>
+  </body>
 </html>
