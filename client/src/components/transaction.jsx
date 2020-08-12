@@ -37,7 +37,7 @@ class Transaction extends Form {
 
       const transaction = await getTransaction(transId);
       const toState = {
-        date: transaction.date.slice(0, 11),
+        date: transaction.date.slice(0, 10),
         category: transaction.category,
         business: transaction.business,
         amount: transaction.amount,
