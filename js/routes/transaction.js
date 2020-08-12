@@ -29,7 +29,6 @@ router.post("/", auth, async (req, res) => {
   res.send(transaction);
 });
 
-//put to regular or specific id?
 router.put("/:id", auth, async(req, res) => {
     const transaction = await Transaction.findById(req.params.id);
     if (!transaction) res.status(404).send('The transaction could not be found');
