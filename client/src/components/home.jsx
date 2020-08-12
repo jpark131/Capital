@@ -4,6 +4,7 @@ import TransactionTable from "./transactionTable";
 import { getUserObject, getCategories } from "../services/userService";
 import Pie from "./common/pie";
 import ListGroup from "./common/listGroup";
+import { deleteTransaction } from "../services/transactionService";
 
 class Home extends Component {
   state = {
@@ -57,14 +58,16 @@ class Home extends Component {
     this.setState({ currentMonth: date });
   };
 
-  handleDelete = (transaction) => {
+  handleDelete = async (transaction) => {
     const originalTransactions = this.state.transactions;
-    const transactions = originalTransactions.filter((t) => t._id !== transaction._id);
+    const transactions = originalTransactions.filter(
+      (t) => t._id !== transaction._id
+    );
     this.setState({ transactions });
     try {
-      await deleteMovie(transaction._id);
+      await deleteTransaction(transaction._id);
     } catch (ex) {
-      toast.error("This transaction has already been deleted");
+      alert("This transaction has already been deleted");
 
       this.setState({ transactions: originalTransactions });
     }

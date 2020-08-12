@@ -37,6 +37,7 @@ class Transaction extends Form {
       if (transId === "new") return;
 
       const transaction = await getTransaction(transId);
+      console.log(transaction.date);
       const toState = {
         date: transaction.date,
         category: transaction.category,

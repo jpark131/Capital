@@ -5,8 +5,6 @@ const transactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
-    minlength: 2,
-    maxlength: 50,
   },
   amount: {
     type: Number,
@@ -16,13 +14,13 @@ const transactionSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 3,
     maxlength: 20,
   },
   business: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 3,
     maxlength: 20,
   },
 });
@@ -31,10 +29,10 @@ const Transaction = mongoose.model("Transaction", transactionSchema);
 
 function validateTransaction(transaction) {
   const schema = {
-    category: Joi.string().min(5).max(20).required(),
+    category: Joi.string().min(3).max(20).required(),
     amount: Joi.number().min(0).required(),
-    date: Joi.date(),
-    business: Joi.string().min(5).max(20).required(),
+    date: Joi.date().required(),
+    business: Joi.string().min(3).max(20).required(),
   };
 
   return Joi.validate(transaction, schema);
