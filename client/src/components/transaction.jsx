@@ -15,10 +15,10 @@ class Transaction extends Form {
   };
 
   schema = {
-    date: Joi.date().required(),
-    category: Joi.string().min(3).max(20).required(),
-    business: Joi.string().min(3).max(20).required(),
-    amount: Joi.number().min(0).required(),
+    date: Joi.date().required().label("Date"),
+    category: Joi.string().min(3).max(20).required().label("Category"),
+    business: Joi.string().min(3).max(20).required().label("Business Name"),
+    amount: Joi.number().min(0).required().label("Transaction Amount"),
   };
 
   doSubmit = async (transaction) => {
@@ -57,6 +57,12 @@ class Transaction extends Form {
     const { data, errors } = this.state;
     return (
       <div className="transaction">
+        {errors.date ||
+          ((errors.category || errors.business || errors.amount) && (
+            <div className="alert text-danger">
+              {errors[Object.keys(errors)[0]]}
+            </div>
+          ))}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="date"> Date: </label>
           <input

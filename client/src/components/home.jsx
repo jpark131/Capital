@@ -5,6 +5,7 @@ import { getUserObject, getCategories } from "../services/userService";
 import Pie from "./common/pie";
 import ListGroup from "./common/listGroup";
 import { deleteTransaction } from "../services/transactionService";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   state = {
@@ -29,12 +30,10 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    if (this.state.transactions.length === 0) {
-      this.props.history.push("/transaction/new");
-    }
     const user = await getUserObject();
     if (!user) return;
     const transactions = user.transactions;
+
     let categories = [];
     for (let t of transactions) {
       t.date = new Date(t.date);
@@ -108,7 +107,6 @@ class Home extends Component {
   render() {
     const { sortColumn, budget, currentMonth, months } = this.state;
     const { sorted: transactions, spent, categories } = this.getPageData();
-
     return (
       <div className="text-center float-center">
         <h1>This Month's Budget: ${budget}</h1>
@@ -129,6 +127,11 @@ class Home extends Component {
               onDelete={this.handleDelete}
               onSort={this.handleSort}
             />
+            {this.state.transactions.length === 0 && (
+              <Link className="btn btn-primary center" to="/transaction/new">
+                New Transaction
+              </Link>
+            )}
           </div>
           <div className="col">
             <Pie transactions={transactions} categories={categories} />
