@@ -22,7 +22,7 @@ class TransactionTable extends Component {
       content: (transaction) => (
         <Link
           className="btn btn-primary"
-          to={`/transactions/${transaction._id}`}
+          to={`/transaction/${transaction._id}`}
         >
           Edit
         </Link>

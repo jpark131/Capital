@@ -21,9 +21,9 @@ class Transaction extends Form {
   };
 
   doSubmit = (transaction) => {
-    saveTransaction(transaction);
+    saveTransaction(transaction, this.props.match.params.id);
 
-    this.props.history.push("/home");
+    //this.props.history.push("/home");
   };
 
   async populateTransaction() {
