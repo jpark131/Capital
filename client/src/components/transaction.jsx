@@ -30,16 +30,14 @@ class Transaction extends Form {
 
     window.location = "/home";
   };
-
   async populateTransaction() {
     try {
       const transId = this.props.match.params.id;
       if (transId === "new") return;
 
       const transaction = await getTransaction(transId);
-      console.log(transaction.date);
       const toState = {
-        date: transaction.date,
+        date: transaction.date.slice(0, 11),
         category: transaction.category,
         business: transaction.business,
         amount: transaction.amount,
