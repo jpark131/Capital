@@ -28,7 +28,7 @@ class Transaction extends Form {
     );
     addTransactionToUser(transactionInDb._id);
 
-    this.props.history.push("/home");
+    window.location = "/home";
   };
 
   async populateTransaction() {
