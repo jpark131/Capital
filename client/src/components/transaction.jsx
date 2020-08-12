@@ -6,6 +6,7 @@ import {
   saveTransaction,
   getTransaction,
 } from "../services/transactionService";
+import { updateUser } from "../services/userService";
 
 class Transaction extends Form {
   state = {
@@ -22,6 +23,7 @@ class Transaction extends Form {
 
   doSubmit = (transaction) => {
     saveTransaction(transaction, this.props.match.params.id);
+    updateUser();
 
     //this.props.history.push("/home");
   };

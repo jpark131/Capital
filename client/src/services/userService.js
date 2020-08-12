@@ -32,8 +32,16 @@ export async function getCategories() {
   return categories;
 }
 
+export async function updateUser() {
+  const user = await getUserObject();
+  const userForDb = { ...user };
+  delete userForDb._id;
+  return http.put(`${endpoint}/me`, userForDb);
+}
+
 export default {
   register,
   getUserObject,
   getCategories,
+  updateUser,
 };

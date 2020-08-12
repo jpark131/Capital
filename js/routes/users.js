@@ -6,9 +6,7 @@ const router = express.Router();
 const _ = require("lodash");
 
 router.get("/me", auth, async (req, res) => {
-  const user = await User.findById(req.user._id)
-    .populate("transactions")
-    .select("-password");
+  const user = await User.findById(req.user._id).populate("transactions");
   res.send(user);
 });
 
