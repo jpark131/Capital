@@ -9,6 +9,7 @@ import Logout from "./components/logout";
 import ProtectedRoute from "./components/common/protectedRoute";
 import auth from "./services/authService";
 import "./App.css";
+import About from "./components/about";
 
 class App extends Component {
   state = {};
@@ -30,7 +31,8 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={Register} />
-            <Redirect from="/" to="/home" exact />
+            <Route path="/about" component={About} />
+            <Redirect from="/" to="/about" exact />
           </Switch>
         </main>
       </React.Fragment>

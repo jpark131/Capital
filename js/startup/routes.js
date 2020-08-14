@@ -6,6 +6,6 @@ const transaction = require("../routes/transactions");
 module.exports = function (app) {
   app.use(express.json());
   app.use("/users", users);
-  app.use("/login", login);
+  app.use("/log-in", login);
   app.use("/transactions", transaction);
 };
