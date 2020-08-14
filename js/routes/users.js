@@ -1,27 +1,65 @@
-const {User, validate} = require('../models/user');
-const mongoose = require('mongoose');
-const express = require('express');
+const { User, validate } = require("../models/user");
+const auth = require("../middleware/auth");
+const bcrypt = require("bcrypt");
+const express = require("express");
 const router = express.Router();
+const _ = require("lodash");
 
-router.post('/', async (req, res) => {
-    // validates user by calling validate method.
-    const { error } = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+router.get("/me", auth, async (req, res) => {
+  const user = await User.findById(req.user._id).populate("transactions");
+  res.send(user);
+});
 
-    // checks if user is already in the database by looking up email for
-    // other registered users with the same email
-    let user = await User.findOne({ email: req.body.email });
-    if (user) return res.status(400).send('User already registered.');
+router.post("/", async (req, res) => {
+  // validates user by calling validate method.
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
-    user = new User ({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    })
+  // checks if user is already in the database by looking up email for
+  // other registered users with the same email
+  let user = await User.findOne({ email: req.body.email });
+  if (user) return res.status(400).send("User already registered.");
 
-    await user.save();
+  user = new User({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    transactions: req.body.transactions,
+  });
 
-    res.send(user);
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(req.body.password, salt);
+  user = await user.save();
+
+  const token = user.generateAuthToken();
+  res
+    .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token")
+    .send(_.pick(user, ["_id", "name", "email"]));
+});
+
+router.put("/me", auth, async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
+    return;
+  }
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      transactions: req.body.transactions,
+    },
+    {
+      new: true,
+    }
+  );
+  if (!user) res.status(404).send("The user could not be found");
+
+  res.send(user);
 });
 
 module.exports = router;
