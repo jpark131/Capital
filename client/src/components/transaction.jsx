@@ -34,7 +34,6 @@ class Transaction extends Form {
     try {
       const transId = this.props.match.params.id;
       if (transId === "new") return;
-
       const transaction = await getTransaction(transId);
       const toState = {
         date: transaction.date.slice(0, 10),
@@ -44,8 +43,7 @@ class Transaction extends Form {
       };
       this.setState({ data: toState });
     } catch (ex) {
-      if (ex.response && ex.response.status === 404)
-        this.props.history.replace("/not-found");
+      this.props.history.replace("/not-found");
     }
   }
 

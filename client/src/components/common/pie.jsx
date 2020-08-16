@@ -7,7 +7,7 @@ class Pie extends Component {
     const pieData = categories.map((c) => {
       return {
         title: c.name,
-        value: c.amount,
+        value: Math.ceil(c.amount * 100) / 100,
         color: `#${((Math.random() * 0xffffff) << 0)
           .toString(16)
           .padStart(6, "0")}`,

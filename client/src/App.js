@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/common/protectedRoute";
 import auth from "./services/authService";
 import "./App.css";
 import About from "./components/about";
+import NotFound from "./components/notFound";
 
 class App extends Component {
   state = {};
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={Register} />
             <Route path="/about" component={About} />
+            <Route path="/not-found" component={NotFound} />
             <Redirect from="/" to="/about" exact />
           </Switch>
         </main>

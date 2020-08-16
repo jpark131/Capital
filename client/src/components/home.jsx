@@ -96,11 +96,15 @@ class Home extends Component {
         spent += t.amount;
         if (categories.find((e) => e.name === t.category))
           categories.find((e) => e.name === t.category).amount += t.amount;
-        else categories.push({ name: t.category, amount: t.amount });
+        else
+          categories.push({
+            name: t.category,
+            amount: t.amount,
+          });
       }
     }
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
-
+    spent = Math.ceil(spent * 100) / 100; //To make sure there's only two decimal places
     return { sorted, spent, categories };
   };
 
