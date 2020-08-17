@@ -11,6 +11,7 @@ import auth from "./services/authService";
 import "./App.css";
 import About from "./components/about";
 import NotFound from "./components/notFound";
+import Profile from "./components/profile";
 
 class App extends Component {
   state = {};
@@ -29,6 +30,7 @@ class App extends Component {
           <Switch>
             <ProtectedRoute path="/transaction/:id" component={Transaction} />
             <ProtectedRoute path="/home" component={Home} />
+            <ProtectedRoute path="/profile" component={Profile} />
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={Register} />
