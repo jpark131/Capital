@@ -72,7 +72,7 @@ router.put("/me", auth, async (req, res) => {
   if (user)
     return res.status(400).send("User already registered with that email.");
 
-  const user = await User.findByIdAndUpdate(
+  user = await User.findByIdAndUpdate(
     req.user._id,
     {
       name: req.body.name,
