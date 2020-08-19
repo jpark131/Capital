@@ -42,12 +42,15 @@ router.put("/me/password", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const user = await User.findByIdAndUpdate(
+  const salt = await bcrypt.genSalt(10);
+  const newPass = await bcrypt.hash(req.body.password, salt);
+
+  let user = await User.findByIdAndUpdate(
     req.user._id,
     {
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password,
+      password: newPass,
       transactions: req.body.transactions,
       budget: req.body.budget,
     },
@@ -55,10 +58,9 @@ router.put("/me/password", auth, async (req, res) => {
       new: true,
     }
   );
+  if (!user) res.status(404).send("The user could not be found");
 
-  const salt = await bcrypt.genSalt(10);
-  user.password = await bcrypt.hash(req.body.password, salt);
-  user = await user.save();
+  res.send(user);
 });
 
 router.put("/me", auth, async (req, res) => {
