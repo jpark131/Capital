@@ -47,16 +47,8 @@ router.put("/me/password", auth, async (req, res) => {
 
   let user = await User.findByIdAndUpdate(
     req.user._id,
-    {
-      name: req.body.name,
-      email: req.body.email,
-      password: newPass,
-      transactions: req.body.transactions,
-      budget: req.body.budget,
-    },
-    {
-      new: true,
-    }
+    { password: newPass },
+    { new: true }
   );
   if (!user) res.status(404).send("The user could not be found");
 
