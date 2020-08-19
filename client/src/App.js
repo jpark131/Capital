@@ -12,6 +12,7 @@ import "./App.css";
 import About from "./components/about";
 import NotFound from "./components/notFound";
 import Profile from "./components/profile";
+import PasswordForm from "./components/passwordForm";
 
 class App extends Component {
   state = {};
@@ -31,6 +32,7 @@ class App extends Component {
             <ProtectedRoute path="/transaction/:id" component={Transaction} />
             <ProtectedRoute path="/home" component={Home} />
             <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/change-pass" component={PasswordForm} />
             <Route path="/login" component={Login} />
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={Register} />

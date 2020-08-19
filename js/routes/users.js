@@ -38,12 +38,9 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email"]));
 });
 
-router.put("/me", auth, async (req, res) => {
+router.put("/me/password", auth, async (req, res) => {
   const { error } = validate(req.body);
-  if (error) {
-    res.status(400).send(error.details[0].message);
-    return;
-  }
+  if (error) return res.status(400).send(error.details[0].message);
 
   const user = await User.findByIdAndUpdate(
     req.user._id,
@@ -52,6 +49,37 @@ router.put("/me", auth, async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       transactions: req.body.transactions,
+      budget: req.body.budget,
+    },
+    {
+      new: true,
+    }
+  );
+
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(req.body.password, salt);
+  user = await user.save();
+});
+
+router.put("/me", auth, async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) {
+    res.status(400).send(error.details[0].message);
+    return;
+  }
+
+  let user = await User.findOne({ email: req.body.email });
+  if (user)
+    return res.status(400).send("User already registered with that email.");
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      transactions: req.body.transactions,
+      budget: req.body.budget,
     },
     {
       new: true,

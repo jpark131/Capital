@@ -34,12 +34,31 @@ export async function getCategories() {
 
 export async function addTransactionToUser(transactionId) {
   const user = await getUserObject();
+  user.transactions.push(transactionId);
   delete user._id;
   delete user.__v;
-  user.transactions.push(transactionId);
-  const userForDb = { ...user };
-  delete userForDb._id;
-  return http.put(`${endpoint}/me`, userForDb);
+  return http.put(`${endpoint}/me`, user);
+}
+
+export async function changeProfile(info) {
+  const newInfo = { ...info };
+  const user = await getUserObject();
+  delete user._id;
+  delete user.__v;
+  user.name = newInfo.name;
+  user.email = newInfo.email;
+  user.budget = newInfo.budget;
+  return http.put(`${endpoint}/me`, user);
+}
+
+export async function changePassword(password) {
+  const user = await getUserObject();
+  delete user._id;
+  delete user.__v;
+
+  user.password = password;
+
+  return http.put(`${endpoint}/me/password`, user);
 }
 
 export default {
@@ -47,4 +66,6 @@ export default {
   getUserObject,
   getCategories,
   addTransactionToUser,
+  changeProfile,
+  changePassword,
 };
