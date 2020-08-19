@@ -27,7 +27,7 @@ class Profile extends Form {
       this.setState({ errors });
     }
 
-    //window.location = "/home";
+    window.location = "/home";
   };
 
   async populateProfile() {
