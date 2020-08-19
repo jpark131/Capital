@@ -45,6 +45,7 @@ export async function changeProfile(info) {
   const user = await getUserObject();
   delete user._id;
   delete user.__v;
+
   user.name = newInfo.name;
   user.email = newInfo.email;
   user.budget = newInfo.budget;

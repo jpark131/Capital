@@ -7,20 +7,25 @@ import { Link } from "react-router-dom";
 
 class Profile extends Form {
   state = {
-    data: { name: "", email: "", password: "", budget: 0 },
+    data: { name: "", email: "", budget: 0 },
     errors: {},
   };
 
   schema = {
     name: Joi.string().required().label("Name"),
     email: Joi.string().required().email().label("Username"),
-    password: Joi.string().required().label("Password"),
     budget: Joi.number().min(0).required().label("Budget"),
   };
 
   doSubmit = async (profile) => {
-    delete profile.password;
-    await changeProfile(profile);
+    try {
+      delete profile.password;
+      await changeProfile(profile);
+    } catch (ex) {
+      const errors = { ...this.state.errors };
+      errors.email = ex.response.data;
+      this.setState({ errors });
+    }
 
     //window.location = "/home";
   };
@@ -31,7 +36,6 @@ class Profile extends Form {
       const toState = {
         name: user.name,
         email: user.email,
-        password: "test",
         budget: user.budget,
       };
       this.setState({ data: toState });
@@ -68,8 +72,8 @@ class Profile extends Form {
                   type="text"
                   id="name"
                   name="name"
-                  value={data.date}
-                  error={errors.date}
+                  value={data.name}
+                  error={errors.name}
                   onChange={this.handleChange}
                 />
               </td>
@@ -82,8 +86,8 @@ class Profile extends Form {
                   type="text"
                   id="email"
                   name="email"
-                  value={data.date}
-                  error={errors.date}
+                  value={data.email}
+                  error={errors.email}
                   onChange={this.handleChange}
                 />
               </td>
@@ -102,11 +106,11 @@ class Profile extends Form {
               <td></td>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   id="budget"
                   name="budget"
-                  value={data.date}
-                  error={errors.date}
+                  value={data.budget}
+                  error={errors.budget}
                   onChange={this.handleChange}
                 />
               </td>

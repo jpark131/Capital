@@ -69,7 +69,7 @@ router.put("/me", auth, async (req, res) => {
   }
 
   let user = await User.findOne({ email: req.body.email });
-  if (user)
+  if (user && user._id === req.user._id)
     return res.status(400).send("User already registered with that email.");
 
   user = await User.findByIdAndUpdate(
