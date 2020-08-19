@@ -93,7 +93,7 @@ class Profile extends Form {
               </td>
             </tr>
             <tr>
-              <td>Password (Non-functional)</td>
+              <td>Password</td>
               <td></td>
               <td>
                 <Link className="btn btn-primary mb-3" to="/change-pass">
