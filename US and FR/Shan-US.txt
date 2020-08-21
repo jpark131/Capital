@@ -5,6 +5,5 @@ debt-free.
 As a user, I want a categories page, so I can see the breakdown of my current
 monthly budget and spendings by category.
 
-As a single mother, I want to be notified of upcoming bills and notified
-whenever I spend above a specified threshold, so that I can financially support
-myself and my child.
+As a user, I want to be notified of upcoming bills and whenever I spend above 
+a specified threshold, so I can remain within my monthly budget.
