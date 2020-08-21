@@ -4,6 +4,7 @@ import Form from "./common/form";
 import "../view/css/login.css";
 import { Link, Redirect } from "react-router-dom";
 import auth from "../services/authService";
+import EmailPass from "./common/emailPass";
 
 class Login extends Form {
   state = {
@@ -37,31 +38,7 @@ class Login extends Form {
           <li>Welcome Back!</li>
         </ul>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="Email"
-            value={data.email}
-            error={errors.email}
-            onChange={this.handleChange}
-          />
-          <br />
-          {errors.email && (
-            <div className="alert alert-danger">{errors.email}</div>
-          )}
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={data.password}
-            error={errors.password}
-            onChange={this.handleChange}
-          />
-          {errors.password && (
-            <div className="alert alert-danger">{errors.password}</div>
-          )}
+          <EmailPass data={data} errors={errors} onChange={this.handleChange} />
           <button type="submit" className="Login" disabled={this.validate()}>
             Login
           </button>

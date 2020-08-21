@@ -4,6 +4,7 @@ import Form from "./common/form";
 import "../view/css/login.css";
 import * as userService from "../services/userService";
 import auth from "../services/authService";
+import EmailPass from "./common/emailPass";
 
 class Register extends Form {
   state = {
@@ -51,31 +52,7 @@ class Register extends Form {
           {errors.name && (
             <div className="alert alert-danger">{errors.name}</div>
           )}
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="Email"
-            value={data.email}
-            error={errors.email}
-            onChange={this.handleChange}
-          />
-          <br />
-          {errors.email && (
-            <div className="alert alert-danger">{errors.email}</div>
-          )}
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={data.password}
-            error={errors.password}
-            onChange={this.handleChange}
-          />
-          {errors.password && (
-            <div className="alert alert-danger">{errors.password}</div>
-          )}
+          <EmailPass data={data} errors={errors} onChange={this.handleChange} />
           <button type="submit" className="Login">
             Register
           </button>
