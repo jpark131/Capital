@@ -1,11 +1,7 @@
-# Capital
+# Capital App
 
-On **New Transaciton** Page: <br>
-   * **Date** is selected from a dropdown<br>
-   * **Category** is only alphabet characters<br>
-   * **Business Name** can be alpha-numeric<br>
-   * **Amount** is a float value<br><br>
-
+Welcome to **Group 4's** code repository for our final project for CSC307 - Introduction to Software Engineering. <br>
+Click around and explore!
 
 Link to **SonarCloud**:<br>
 >  https://sonarcloud.io/dashboard?id=kailishan_Capital
