@@ -6,11 +6,6 @@ On **New Transaciton** Page: <br>
    * **Business Name** can be alpha-numeric<br>
    * **Amount** is a float value<br><br>
 
-Link to **Github Pages**:<br>
->https://jpark131.github.io/Capital/
-
-
-<br>
 
 Link to **SonarCloud**:<br>
 >  https://sonarcloud.io/dashboard?id=kailishan_Capital
