@@ -9,8 +9,6 @@ On **New Transaciton** Page: <br>
 Link to **Github Pages**:<br>
 >https://jpark131.github.io/Capital/
 
-Link to **Travis CI**:<br>
-> 
 
 <br>
 
